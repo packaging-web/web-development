@@ -1,0 +1,23 @@
+<doctype html>
+<title>New Product - Packaging Database</title>
+<h2>New Product</h2>
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    <dl>
+        {{ render_field(form.material_of_construction) }}
+        {{ render_field(form.moulding_process) }}
+        {{ render_field(form.neck_type) }}
+        {{ render_field(form.SKU) }}
+        {{ render_field(form.product) }}
+        {{ render_field(form.best_suited_for) }}
+        {{ render_field(form.container_type) }}
+        {{ render_field(form.vendor_name) }}
+        {{ render_field(form.product_name) }}
+        {{ render_field(form.ofc) }}
+        {{ render_field(form.weight) }}
+        {{ render_field(form.price) }}
+        {{ render_field(form.shape) }}
+    </dl>
+    <p><input type=submit value=Submit>
+</form>
