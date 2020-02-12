@@ -8,7 +8,7 @@ class ProductSearchForm(Form):
                ('Oil', 'Oil'),
                ('Conditioner', 'Conditioner')]
     select = SelectField('Search for Product:', choices = choices)
-    search = StringField('')
+
 """
 class ShapeSearchForm(Form):
     choices = [('Cylinder', 'Cylinder'),

@@ -3,6 +3,7 @@ from db_setup import init_db, db_session
 from forms import ProductSearchForm, ProductForm
 from flask import flash, render_template, request, redirect
 from models import Master
+from tables import Results
 
 init_db()
 
@@ -17,19 +18,50 @@ def index():
 @app.route('/results')
 def search_results(search):
     results = []
-    search_string = search.data['search']
 
-    if search.data['search'] == '':
+    if search.data['select'] == 'Shampoo':
+        qry = db_session.query(Master).filter(
+            Master.product.contains('Shampoo'))
+        results = qry.all()
+
+    elif search.data['select'] == 'Lotion':
+        qry = db_session.query(Master).filter(
+            Master.product.contains('Lotion'))
+        results = qry.all()
+
+    elif search.data['select'] == 'Cream':
+        qry = db_session.query(Master).filter(
+            Master.product.contains('Cream'))
+        results = qry.all()
+
+    elif search.data['select'] == 'Balm':
+        qry = db_session.query(Master).filter(
+            Master.product.contains('Balm'))
+        results = qry.all()
+
+    elif search.data['select'] == 'Oil':
+        qry = db_session.query(Master).filter(
+            Master.product.contains('Oil'))
+        results = qry.all()
+
+    elif search.data['select'] == 'Conditioner':
+        qry = db_session.query(Master).filter(
+            Master.product.contains('Conditioner'))
+        results = qry.all()
+
+    else:
         qry = db_session.query(Master)
         results = qry.all()
-        print(results)
 
     if not results:
         flash('No results found!')
         return redirect('/')
+
     else:
         # display results
-        return render_template('results.html', results = results)
+        table = Results(results)
+        table.border = True
+        return render_template('results.html', table = table)
 
 @app.route('/new_product', methods = ['GET', 'POST'])
 def new_product():
