@@ -21,7 +21,9 @@
 {% from "_formhelpers.html" import render_field %}
 <form method=post>
   <dl>
-    {{ render_field(form.select) }}
+    {{ render_field(form.product_select) }}
+    {{ render_field(form.shape_select) }}
+    {{ render_field(form.type_select) }}
   </dl>
   <p><input type=submit value=Search>
 </form>

@@ -1,28 +1,25 @@
 from wtforms import Form, StringField, SelectField
 
-class ProductSearchForm(Form):
+class SearchForm(Form):
     choices = [('Shampoo', 'Shampoo'),
                ('Lotion', 'Lotion'),
                ('Cream', 'Cream'),
                ('Balm', 'Balm'),
                ('Oil', 'Oil'),
                ('Conditioner', 'Conditioner')]
-    select = SelectField('Search for Product:', choices = choices)
+    product_select = SelectField('Select Product:', choices = choices)
 
-"""
-class ShapeSearchForm(Form):
     choices = [('Cylinder', 'Cylinder'),
                ('Flat', 'Flat'),
                ('Oval', 'Oval'),
                ('Curvy', 'Curvy'),
                ('Square', 'Square'),
                ('Rectangle', 'Rectangle')]
-    select = SelectField('Search for Shape:', choices = choices)
+    shape_select = SelectField('Select Shape:', choices = choices)
 
-class TypeSearchForm(Form):
     choices = [('Opaque', 'Opaque'),
                ('Transparent', 'Transparent')]
-    select = SelectField('Search for Type:', choices = choices)"""
+    type_select = SelectField('Select Type:', choices = choices)
 
 class ProductForm(Form):
     product_choices = [('Shampoo', 'Shampoo'),
